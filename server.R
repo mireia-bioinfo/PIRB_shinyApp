@@ -103,6 +103,11 @@ server <- function(input, output, session) {
       files.contacts <- ""
     }
     
+    if (input$coordType==1) nm <- input$gene else nm <- as.character(coordinates())
+    message(paste0(">>>Creating_regulomePlot/", Sys.time(), "/", nm,
+                  "/", input$snps.type, "/", input$maps.type, "/", input$contacts.type,
+                  "/", input$clusters.type, "/", input$tfs.type))
+    
     suppressWarnings(
       plotRegulome(coordinates(),
                    snps.type=gsub("-", "", input$snps.type),
