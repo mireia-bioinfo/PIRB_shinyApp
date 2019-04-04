@@ -4,7 +4,7 @@ GWAS variants
 ***
 
 ## T2D - 70KforT2D
-Re-analysis of public genetic data reveals a rare X-chromosomal variant associated with type 2 diabetes. Bonàs-Guarch S, et al. Nat Commun. 9, 321 (2018). doi: 10.1038/s41467-017-02380-9
+Re-analysis of public genetic data reveals a rare X-chromosomal variant associated with type 2 diabetes. Bonas-Guarch S, et al. Nat Commun. 9, 321 (2018). doi: 10.1038/s41467-017-02380-9
 
 - [70kfotT2D](https://www.nature.com/articles/s41467-017-02380-9)
 

@@ -27,7 +27,7 @@ Pancreatic islet enhancer clusters enriched in type 2 diabetes risk-associated v
 
 ## Pancreatic islet transcriptome
 
-Human β cell transcriptome analysis uncovers lncRNAs that are tissue-specific, dynamically regulated, and abnormally expressed in type 2 diabetes. Morán I, et al. Cell Metab. 2012 Oct 3;16(4):435-48. doi: 10.1016/j.cmet.2012.08.010.
+Human β cell transcriptome analysis uncovers lncRNAs that are tissue-specific, dynamically regulated, and abnormally expressed in type 2 diabetes. Moran I, et al. Cell Metab. 2012 Oct 3;16(4):435-48. doi: 10.1016/j.cmet.2012.08.010.
 
 - H3K4me3, [E-MTAB-1294](http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-1294/)
 - RNA-seq, [E-MTAB-1294](http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-1294/)
