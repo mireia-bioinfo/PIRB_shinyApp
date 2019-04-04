@@ -1,7 +1,6 @@
 # Define UI for miles per gallon app ----
 ui <- fluidPage(theme = shinytheme("yeti"),
                 
-                tags$head(includeScript("google-analytics.js")),
   # App title ----
   navbarPage(title=div(img(src="favicon.png", width="24px"), "Islet Regulome Browser"),
              windowTitle = "Islet Regulome Browser",
