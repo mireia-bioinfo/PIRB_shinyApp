@@ -4,8 +4,16 @@ library(shinythemes)
 library(markdown)
 library(GenomicRanges)
 library(plotRegulome)
-# devtools::load_all("~/tools/plotRegulome/")
 library(DT)
+
+## Add informtion for link preview
+share <- list(
+  title = "The Islet Regulome Browser",
+  url = "http://http://isletregulome.com",
+  image = "http://http://isletregulome.com/isletregulome/favicon.png",
+  description = "The Islet Regulome Browser is a visualization tool that provides access to interactive exploration of pancreatic islet genomic data.",
+  twitter_user = "isletregulome"
+)
 
 ## Path for IsletRegulome files
 path <- "static_data/RData/"

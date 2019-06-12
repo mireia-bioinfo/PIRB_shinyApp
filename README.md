@@ -21,13 +21,13 @@ You need to have installed the following packages:
 ## Pending to implement  
 - ~~Add TF info to chromatin maps table.~~
 - ~~Color islet-specific genes in another color.~~
-- Create/add WashU Browser session.
+- ~~Create/add WashU Browser session.~~
 - ~~Add navigation bar on top.~~
 - ~~Add UCSC link.~~
 - ~~Add download plot.~~
 - ~~Add tabs (one for plot, one for tables).~~
 - ~~Implement tables for the regions selected~~ + ~~Download tables (for classes, SNPs and genes)~~ ~~--> Color tables with **[formattable](https://github.com/renkun-ken/formattable)**.~~
-    - Maps table --> Also add info regarding TF(?)
+    - ~~Maps table --> Also add info regarding TF(?)~~
 - Possibility of uploading SNPs data and/or regions for chromatin maps.
 - ~~Add description and information in the navbar sections.~~
 - ~~Include **new datasets** from Jorge Ferrer lab~~

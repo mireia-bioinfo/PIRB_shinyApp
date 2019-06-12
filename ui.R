@@ -1,6 +1,21 @@
 # Define UI for miles per gallon app ----
 ui <- fluidPage(theme = shinytheme("yeti"),
-  tags$head(tags$link(rel = "shortcut icon", href = "favicon.ico")),              
+  tags$head(tags$link(rel = "shortcut icon", href = "favicon.ico"), # Line to include favicon
+            # Facebook OpenGraph tags
+            tags$meta(property = "og:title", content = share$title),
+            tags$meta(property = "og:type", content = "website"),
+            tags$meta(property = "og:url", content = share$url),
+            tags$meta(property = "og:image", content = share$image),
+            tags$meta(property = "og:description", content = share$description),
+            
+            # Twitter summary cards
+            tags$meta(name = "twitter:card", content = "summary"),
+            tags$meta(name = "twitter:site", content = paste0("@", share$twitter_user)),
+            tags$meta(name = "twitter:creator", content = paste0("@", share$twitter_user)),
+            tags$meta(name = "twitter:title", content = share$title),
+            tags$meta(name = "twitter:description", content = share$description),
+            tags$meta(name = "twitter:image", content = share$image)
+  ),
   # App title ----
   navbarPage(title=div(img(src="favicon.png", width="24px"), "Islet Regulome Browser"),
              windowTitle = "Islet Regulome Browser",
@@ -250,7 +265,20 @@ ui <- fluidPage(theme = shinytheme("yeti"),
                                             )
                                    )
              )
-        )
+        ),
+  hr(),
+  fluidRow(
+    column(6, "Follow us on twitter!", 
+           a("@isletregulome", 
+             href="https://twitter.com/isletregulome",
+             target="_blank")),
+    column(6, "The IRB is developed and maintained at the",
+           a("Endocrine Regulatory Genomics Lab", 
+             href="https://www.endoregulatorygenomics.org/",
+             target="_blank"),
+           "(IGTP, Badalona, Spain)")
+  ),
+  hr()
 )
 
   
