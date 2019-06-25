@@ -26,7 +26,6 @@ ui <- fluidPage(theme = shinytheme("yeti"),
              ## TOPBAR ------------------------------
              p("The Islet Regulome Browser is a visualization tool that provides access to interactive exploration of pancreatic islet genomic data."),
              topbar,
-             br(),
              fluidRow(
                ## SIDEBAR PANEL (DATA) -----------------------
                column(width=4, id="sidebar", 
@@ -35,6 +34,7 @@ ui <- fluidPage(theme = shinytheme("yeti"),
                ## MAIN PANEL ---------------------------------
                column(width=8, id="main",
                       ## TABS MAIN ------------------------------
+                      br(),
                       tabsetPanel(type="tabs", 
                                   tabMainPlot,
                                   tabMainTables)
