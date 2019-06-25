@@ -267,18 +267,16 @@ ui <- fluidPage(theme = shinytheme("yeti"),
              )
         ),
   hr(),
-  fluidRow(
-    column(6, "Follow us on twitter!", 
-           a("@isletregulome", 
-             href="https://twitter.com/isletregulome",
-             target="_blank")),
-    column(6, "The IRB is developed and maintained at the",
-           a("Endocrine Regulatory Genomics Lab", 
-             href="https://www.endoregulatorygenomics.org/",
-             target="_blank"),
-           "(IGTP, Badalona, Spain)")
-  ),
-  hr()
+  p("Follow us on twitter!", 
+    a("@isletregulome",
+      href="https://twitter.com/isletregulome",
+      target="_blank"), align="center"),
+  p("The IRB is developed and maintained at the",
+    a("Endocrine Regulatory Genomics Lab", 
+      href="https://www.endoregulatorygenomics.org/",
+      target="_blank"),
+    "(IGTP, Badalona, Spain)", align="center")
+
 )
 
   
