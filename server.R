@@ -1,4 +1,27 @@
 server <- function(input, output, session) {
+  
+  ## Hide or show sidebar panel
+  ##----------------------------------------------------------------
+  observeEvent(input$toggleSidebar, {
+    shinyjs::toggle(id = "sidebar")
+
+    if (input$toggleSidebar %% 2 != 0) {
+      updateActionButton(session,
+                         "toggleSidebar",
+                         label = "Show sidebar",
+                         icon = icon("eye"))
+      removeCssClass("main", "col-sm-8")
+      addCssClass("main", "col-sm-12")
+    } else if (input$toggleSidebar %% 2 == 0) {
+      updateActionButton(session,
+                         "toggleSidebar",
+                         label = "Hide sidebar",
+                         icon = icon("eye-slash"))
+      removeCssClass("main", "col-sm-12")
+      addCssClass("main", "col-sm-8")
+    }
+  })
+  
 
   ## Add options for virtual 4C and genes (improve loading time)
   ##----------------------------------------------------------------
@@ -64,7 +87,7 @@ server <- function(input, output, session) {
                         1),
                 max=min(end(ranges(coordinates()))+width(ranges(coordinates()))*4,
                         len$length[len$chr==as.character(seqnames(coordinates()))]),
-                width="800px")
+                width="100%")
   })
   
   ## Update coordinates to slider values
@@ -139,9 +162,6 @@ server <- function(input, output, session) {
     content = function(file) {
       ggplot2::ggsave(filename=file, plot=makePlot(),
              width=12, height=6, unit="in")
-      # png(filename=file, width=1000, height=800)
-      # print(makePlot())
-      # dev.off()
     }
   )
   

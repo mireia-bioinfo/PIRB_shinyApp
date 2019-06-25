@@ -1,10 +1,18 @@
+## Load necessary packages
 library(shiny)
 library(shinycssloaders)
+library(shinyjs)
 library(shinythemes)
 library(markdown)
 library(GenomicRanges)
 library(plotRegulome)
 library(DT)
+
+## Load UI elements
+source("ui_elements/sidebarPanel.R")
+source("ui_elements/mainPanelPlot.R")
+source("ui_elements/mainPanelTable.R")
+source("ui_elements/mainPanelTopbar.R")
 
 ## Add informtion for link preview
 share <- list(

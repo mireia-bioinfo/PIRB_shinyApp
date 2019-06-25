@@ -9,6 +9,7 @@ You need to have installed the following packages:
 - CRAN
     - [shiny](https://CRAN.R-project.org/package=shiny)
     - [shinycssloaders](https://CRAN.R-project.org/package=shinycssloaders)
+    - [shinyjs](https://deanattali.com/shinyjs/)
     - [shinythemes](https://CRAN.R-project.org/package=shinythemes)
     - [ggplot2](https://CRAN.R-project.org/package=ggplot2)
     - [DT](https://CRAN.R-project.org/package=DT)
