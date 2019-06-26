@@ -188,16 +188,16 @@ server <- function(input, output, session) {
   ## Maps table
   maps.df <- eventReactive(input$doPlot, {
     maps.l <- create_mapsRegulome(coordinates=coordinates(),
-                                  maps.type=input$maps.type,
+                                  maps.type=gsub("-", "", input$maps.type),
                                   genome=input$genome,
                                   path=path)
     
     tfs.l <- create_tfsRegulome(coordinates=coordinates(),
-                                  tfs.type=input$tfs.type,
+                                  tfs.type=gsub("-", "", input$tfs.type),
                                   genome=input$genome,
                                   path=path)
     
-    if (maps.l$name!="") {
+    if (maps.l$name!="" & tfs.l$name!="") {
       ## Add tfs data
       ol <- findOverlaps(maps.l$value,
                          tfs.l$value)
@@ -213,6 +213,10 @@ server <- function(input, output, session) {
       ## Convert to data.frame
       maps.l$value <- data.frame(maps.l$value)[,c(6, 1:3, 7)]
       colnames(maps.l$value) <- c("Class", "Chr", "Start", "End", "TFBS")
+    } else if (maps.l$name!="" & tfs.l$name=="") {
+    maps.l$value$TFBS <- "-"
+    maps.l$value <- data.frame(maps.l$value)[,c(6, 1:3, 7)]
+    colnames(maps.l$value) <- c("Class", "Chr", "Start", "End", "TFBS")
     } else {
       maps.l$value <- data.frame("Class"=NA,
                                  "Chr"=NA,

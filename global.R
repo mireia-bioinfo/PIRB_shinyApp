@@ -8,12 +8,6 @@ library(GenomicRanges)
 library(plotRegulome)
 library(DT)
 
-## Load UI elements
-source("ui_elements/sidebarPanel.R")
-source("ui_elements/mainPanelPlot.R")
-source("ui_elements/mainPanelTable.R")
-source("ui_elements/mainPanelTopbar.R")
-
 ## Add informtion for link preview
 share <- list(
   title = "The Islet Regulome Browser",
@@ -25,7 +19,6 @@ share <- list(
 
 ## Path for IsletRegulome files
 path <- "static_data/RData/"
-# path <- "../../isletregulomebrowser_shiny/static_data/RData/"
 
 ## Create chromosome names
 chr.names <- paste0("chr", c(1:23, "X", "Y"))
@@ -53,3 +46,10 @@ ids.sel <- ids[file.exists(files),]
 list.art4C <- ids.sel$baitID
 names(list.art4C) <- ids.sel$baitName
 rm(ids)
+
+
+## Load UI elements ---------------------------
+source("ui_elements/sidebarPanel.R")
+source("ui_elements/mainPanelPlot.R")
+source("ui_elements/mainPanelTable.R")
+source("ui_elements/mainPanelTopbar.R")

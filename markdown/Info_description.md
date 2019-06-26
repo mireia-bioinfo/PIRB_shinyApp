@@ -1,7 +1,7 @@
 Description of the plot
 ===============================
 
-<img src="example_IRBPlot.png" height="500" alt="IRB Example" align="center">
+<div style="text-align:center"><img src="example_IRBPlot.png" height="500" alt="IRB Example" class="center"/></div>
 
 The plot illustrates regulatory regions, transcription factors binding sites, chromatin interaction data and GWAS variants in which the sequence of the base genome is represented on the horizontal axis. In the upper part of the plot a green line on the chromosome ideogram reflects the portion of the chromosome displayed. 
 Each dot represents a genomic variant, being the color intensity of the dot proportional to -Log10 p-value of association, as indicated on the side of the plot. The rs# ID depicts the top associated variants in the locus.

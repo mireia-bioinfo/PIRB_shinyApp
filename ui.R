@@ -74,7 +74,7 @@ ui <- fluidPage(theme = shinytheme("yeti"),
     tabPanel("Info", icon=icon("exclamation-circle"),
              navlistPanel("Info",
                           widths=c(2,10),
-                          tabPanel("Create a plot",
+                          tabPanel("Generate a plot",
                                    includeMarkdown("markdown/Info_createPlot.md")
                           ),
                           tabPanel("Description of the plot",
