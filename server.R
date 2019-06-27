@@ -187,7 +187,7 @@ server <- function(input, output, session) {
     },
     content = function(file) {
       ggplot2::ggsave(filename=file, plot=makePlot(),
-             width=12, height=6, unit="in")
+             width=12, height=6.5, unit="in")
     }
   )
   
