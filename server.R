@@ -190,7 +190,7 @@ server <- function(input, output, session) {
       # ggplot2::ggsave(filename=file, plot=makePlot(),
       #                 device=png(),
       #        width=12, height=6.5, unit="in")
-      png(filename=file, width=12, height=6, units="in", res=72)
+      png(filename=file, width=12, height=6, units="in", res=72, type="cairo")
       print(makePlot())
       dev.off()
     }
