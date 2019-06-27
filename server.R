@@ -151,7 +151,8 @@ server <- function(input, output, session) {
   
   output$imagePlot <- renderImage ({
     # For high-res displays, this will be greater than 1
-    pixelratio <- session$clientData$pixelratio    
+    # pixelratio <- session$clientData$pixelratio
+    pixelratio <- 1
     
       # Read myImage's width and height. These are reactive values, so this
       # expression will re-run whenever they change.
