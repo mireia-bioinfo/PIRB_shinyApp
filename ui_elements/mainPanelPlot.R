@@ -9,7 +9,7 @@ tabMainPlot <-
              h3("Get started!"),
              img(src="example_IRBPlot.png",
                  align="left",
-                 height="550px")
+                 height="600px")
            ),
            # Update plot -------------
            conditionalPanel(
