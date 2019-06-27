@@ -28,7 +28,7 @@ server <- function(input, output, session) {
   updateSelectizeInput(session = session, 
                     inputId = 'contacts.type', 
                     choices = c("None" = "-", list.art4C),
-                    selected="PDX1-AS1;PDX1",
+                    selected=183446,#"PDX1-AS1;PDX1",
                     server = TRUE)
   
   updateSelectizeInput(session = session, 
