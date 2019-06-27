@@ -183,16 +183,15 @@ server <- function(input, output, session) {
   output$downloadPlot <- downloadHandler(
     filename = function() {
       coordinates <- coordinates()
-      filename <- paste0("IRBplot_", as.character(coordinates), ".png")
+      filename <- paste0("IRBplot_", as.character(coordinates), ".pdf")
       return(filename)
     },
     content = function(file) {
-      # ggplot2::ggsave(filename=file, plot=makePlot(),
-      #                 device=png(),
-      #        width=12, height=6.5, unit="in")
-      png(filename=file, width=12, height=6, units="in", res=72, type="cairo")
-      print(makePlot())
-      dev.off()
+      ggplot2::ggsave(filename=file, plot=makePlot(),
+             width=12, height=6.5, unit="in")
+      # png(filename=file, width=12, height=6, units="in", res=72, type="cairo")
+      # print(makePlot())
+      # dev.off()
     }
   )
   
