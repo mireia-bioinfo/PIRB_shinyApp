@@ -183,7 +183,7 @@ server <- function(input, output, session) {
   output$downloadPlot <- downloadHandler(
     filename = function() {
       coordinates <- coordinates()
-      filename <- paste0("IRBplot_", as.character(coordinates), ".pdf")
+      filename <- paste0("IRBplot_", as.character(coordinates), ".png")
       return(filename)
     },
     content = function(file) {
