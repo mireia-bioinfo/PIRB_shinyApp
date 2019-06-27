@@ -187,8 +187,12 @@ server <- function(input, output, session) {
       return(filename)
     },
     content = function(file) {
-      ggplot2::ggsave(filename=file, plot=makePlot(),
-             width=12, height=6.5, unit="in")
+      # ggplot2::ggsave(filename=file, plot=makePlot(),
+      #                 device=png(),
+      #        width=12, height=6.5, unit="in")
+      png(filename=file, width=12, height=6, units="in", res=72)
+      print(makePlot())
+      dev.off()
     }
   )
   
