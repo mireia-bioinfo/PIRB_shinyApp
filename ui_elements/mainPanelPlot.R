@@ -14,8 +14,9 @@ tabMainPlot <-
            # Update plot -------------
            conditionalPanel(
              condition = "input.doPlot > 0",
-             withSpinner(plotOutput("testPlot",
-                                    height = "550px")),
+             # withSpinner(plotOutput("testPlot",
+             #                        height = "550px")),
+             imageOutput("imagePlot", height="600px"),
              br(),
              ## Add download button for plot
              p(downloadButton("downloadPlot", "Download Plot",

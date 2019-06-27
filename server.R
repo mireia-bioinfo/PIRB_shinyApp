@@ -147,10 +147,36 @@ server <- function(input, output, session) {
   ##----------------------------------------------------------------
   output$testPlot <- renderPlot ({
     makePlot()
-  }#,
-  # width=900, height=600, res=80
-  )
+  })
   
+  output$imagePlot <- renderImage ({
+    # For high-res displays, this will be greater than 1
+    pixelratio <- session$clientData$pixelratio    
+    
+      # Read myImage's width and height. These are reactive values, so this
+      # expression will re-run whenever they change.
+      width  <- session$clientData$output_imagePlot_width*pixelratio
+      height <- session$clientData$output_imagePlot_height*pixelratio
+      
+      dpi=100*pixelratio
+      
+      # A temp file to save the output.
+      outfile <- tempfile(fileext='.png')
+      
+      # Generate the image file
+      ggplot2::ggsave(filename=outfile, 
+                      plot=makePlot(),
+                      width=width/dpi,
+                      height=height/dpi, 
+                      unit="in")
+      
+      # Return a list containing the filename
+      list(src = outfile,
+           width = width,
+           height = height,
+           alt = "This is alternate text")
+    }, deleteFile = TRUE) # delete the temp file when finished
+
   ## Download Regulome Plot
   ##----------------------------------------------------------------
   output$downloadPlot <- downloadHandler(
