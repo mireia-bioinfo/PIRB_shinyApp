@@ -79,7 +79,7 @@ sidebar <-
                      "70KforT2D"="70KforT2D",
                      "Diagram" = "diagram", 
                      "Magic" = "magic"),
-                selected="-",
+                selected="70KforT2D",
                 selectize=TRUE),
     ## Virtual 4C to load
     selectizeInput("contacts.type", 

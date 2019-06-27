@@ -3,7 +3,9 @@
 ## Description
 The Islet Regulome Browser is a dynamic website that allows you to explore genetic and epigenetic data from islet-related cell-types and tissues.
 
-## Before Running
+This repository contains the app that can be found at [http://isletregulome.com](http://isletregulome.com). It uses the `shiny` R package to create the user interface, recieve user queries and return the output. The main IRB plot is drawn using the [plotRegulome](https://github.com/mireia-bioinfo/plotRegulome) package.
+
+## Pre-requisites
 You need to have installed the following packages:
 
 - CRAN
@@ -11,33 +13,29 @@ You need to have installed the following packages:
     - [shinycssloaders](https://CRAN.R-project.org/package=shinycssloaders)
     - [shinyjs](https://deanattali.com/shinyjs/)
     - [shinythemes](https://CRAN.R-project.org/package=shinythemes)
-    - [ggplot2](https://CRAN.R-project.org/package=ggplot2)
     - [DT](https://CRAN.R-project.org/package=DT)
+    - [formattable](https://github.com/renkun-ken/formattable)
 - Bioconductor
     - [GenomicRanges](https://bioconductor.org/packages/release/bioc/html/GenomicRanges.html)
 - Github
-    - [formattable](https://github.com/renkun-ken/formattable)
-    - plotRegulome
+    - [plotRegulome](https://github.com/mireia-bioinfo/plotRegulome)
+    
+In the R console (R version >= 3.5.0) type the following to install the requiered packages:
 
-## Pending to implement  
-- ~~Add TF info to chromatin maps table.~~
-- ~~Color islet-specific genes in another color.~~
-- ~~Create/add WashU Browser session.~~
-- ~~Add navigation bar on top.~~
-- ~~Add UCSC link.~~
-- ~~Add download plot.~~
-- ~~Add tabs (one for plot, one for tables).~~
-- ~~Implement tables for the regions selected~~ + ~~Download tables (for classes, SNPs and genes)~~ ~~--> Color tables with **[formattable](https://github.com/renkun-ken/formattable)**.~~
-    - ~~Maps table --> Also add info regarding TF(?)~~
-- Possibility of uploading SNPs data and/or regions for chromatin maps.
-- ~~Add description and information in the navbar sections.~~
-- ~~Include **new datasets** from Jorge Ferrer lab~~
-    - ~~Artificial 4C~~
-    - ~~New T2D SNPs [link](http://cg.bsc.es/70kfort2d/)~~
-    - ~~New regulome classification.~~
+```
+install.packages(c("shiny",
+                   "shinycssloaders",
+                   "shinyjs"
+                   "shinythemes",
+                   "DT",
+                   "formttable",
+                   "BiocManager", # Required for installing Bioconductor packages
+                   "devtools" # Required for installing github packages
+                   )) 
 
-## Current Bugs  
-- ~~When plotting coordinates `chr2:182487815-182595603` with NeuroD1 contacts, returns an error: `Warning: Error in $<-.data.frame: replacement has 252 rows, data has 130`. Error happens in `plot.contactsRegulome` probably???~~
-- ~~Fix coordinates in slider input --> Never < 1, adapt to region being plotted (% of width??), never more than chromosome length~~
-- ~~Fix table error when no snps/genes/maps are selected~~
+BiocManager::install("GenomicRanges")
+
+devtools::install_github("mireia-bioinfo/plotRegulome")
+```
+
 
