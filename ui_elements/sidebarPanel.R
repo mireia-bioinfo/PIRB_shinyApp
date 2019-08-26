@@ -50,7 +50,7 @@ sidebar <-
     ## Chromatin maps
     selectInput("maps.dataset",
                 label="Chromatin Maps",
-                c(Choose="", list("Adult Islets - Chromatin Classes (Miguel-Escalada I, et al. 2018)" = "chromatinClassesReduced",
+                c(Choose="", list("Adult Islets - Chromatin Classes (Miguel-Escalada I, et al. 2019)" = "chromatinClassesReduced",
                                   "Adult Islets - Chromatin Classes (Pasquali L, et al. 2014)" = "openChromatinClasses",
                                   "Adult Islets - Chromatin States (Parker SC, et al. 2013)" = "chromatinStates",
                                   "Pancreatic Progenitors (Cebola I, et al. 2015)" = "progenitors")),
@@ -60,15 +60,15 @@ sidebar <-
                 label="Enhancer Clustering Annotation",
                 c(Choose="", list("Enhancer Clusters (Pasquali L, et al. 2014)"="enhancerClusters",
                                   "Stretch Enhancers (Parker SC, et al. 2013)"="stretchEnhancers",
-                                  "Super Enhancers (Miguel-Escalada I, et al. 2018)"="superEnhancers",
-                                  "Enhancer Hubs (Miguel-Escalada I, et al. 2018)"="enhancerHubs",
+                                  "Super Enhancers (Miguel-Escalada I, et al. 2019)"="superEnhancers",
+                                  "Enhancer Hubs (Miguel-Escalada I, et al. 2019)"="enhancerHubs",
                                   "COREs (Gaulton KJ, et al. 2010)"="cores")),
                 selected="enhancerClusters"),
     ## TFs type
     selectInput("tfs.dataset",
                 label="Transcription Factors",
                 list("Adult Islets - Tissue-specific (Pasquali L, et al. 2014)" = "adult",
-                     "Adult Islet - Structural (Miguel-Escalada I, et al. 2018)"="structure",
+                     "Adult Islet - Structural (Miguel-Escalada I, et al. 2019)"="structure",
                      "Pancreatic Progenitors (Cebola I, et al. 2015)" = "progenitors",
                      "None"="-"),
                 selected="adult"),
@@ -83,7 +83,7 @@ sidebar <-
                 selectize=TRUE),
     ## Virtual 4C to load
     selectizeInput("contacts.dataset", 
-                   "Virtual 4C (Miguel-Escalada I, et al. 2018)",
+                   "Virtual 4C (Miguel-Escalada I, et al. 2019)",
                    choices=NULL,
                    selected=1)
   )
