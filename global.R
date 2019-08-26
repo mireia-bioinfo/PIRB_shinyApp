@@ -5,8 +5,9 @@ library(shinyjs)
 library(shinythemes)
 library(markdown)
 library(GenomicRanges)
-library(plotRegulome)
 library(DT)
+# library(plotRegulome)
+devtools::load_all("~/tools/IRB/plotregulome/")
 
 ## Add informtion for link preview
 share <- list(
@@ -18,7 +19,7 @@ share <- list(
 )
 
 ## Path for IsletRegulome files
-path <- "static_data/RData/"
+path <- "IRB_database/"
 
 ## Create chromosome names
 chr.names <- paste0("chr", c(1:23, "X", "Y"))
@@ -27,26 +28,17 @@ chr.names <- paste0("chr", c(1:23, "X", "Y"))
 load(paste0(path, "shared/hg19_len.rda"))
 
 ## Load gene names
-load(paste0(path, "shared/gene_names.rda"))
+load(paste0(path, "shared/genes_key.rda"))
 
 ## Load info from baits (Virtual 4C)
-load(paste0(path, "shared/baitID_and_name_virtual4C.rda"))
-ids <-  unique(ids[order(ids$baitName), 1:2])
+load(paste0(path, "hg19/virtual4c/baitID_keyTable.rda"))
+ids <-  unique(ids[order(ids$baitName), c(1:2,7)])
 
 # Select only those for which a file exists
-files = paste0(path,
-               "hg19/",
-               "new_Virtual4C/bw/",
-               "bg0_score/",
-               sapply(ids$baitID, substr, 1,1),
-               "/",
-               "PI_Merged_Digest_Human_HindIII_BaitID", ids$baitID, "_bg0_score.bw")
-ids.sel <- ids[file.exists(files),]
+ids <- ids[ids$fileExists,]
 
-list.art4C <- ids.sel$baitID
-names(list.art4C) <- ids.sel$baitName
-rm(ids)
-
+list.art4C <- ids$baitID
+names(list.art4C) <- ids$baitName
 
 ## Load UI elements ---------------------------
 source("ui_elements/sidebarPanel.R")

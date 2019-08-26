@@ -13,8 +13,9 @@ You need to have installed the following packages:
     - [shinycssloaders](https://CRAN.R-project.org/package=shinycssloaders)
     - [shinyjs](https://deanattali.com/shinyjs/)
     - [shinythemes](https://CRAN.R-project.org/package=shinythemes)
+    - [markdown](https://CRAN.R-project.org/package=markdown)
     - [DT](https://CRAN.R-project.org/package=DT)
-    - [formattable](https://github.com/renkun-ken/formattable)
+    - [formattable](https://CRAN.R-project.org/package=formattable)
 - Bioconductor
     - [GenomicRanges](https://bioconductor.org/packages/release/bioc/html/GenomicRanges.html)
 - Github

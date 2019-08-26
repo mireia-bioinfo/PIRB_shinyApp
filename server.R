@@ -26,14 +26,14 @@ server <- function(input, output, session) {
   ## Add options for virtual 4C and genes (improve loading time)
   ##----------------------------------------------------------------
   updateSelectizeInput(session = session, 
-                    inputId = 'contacts.type', 
-                    choices = c("None" = "-", list.art4C),
+                    inputId = 'contacts.dataset', 
+                    choices = c("None" = NA, list.art4C),
                     selected=183446,#"PDX1-AS1;PDX1",
                     server = TRUE)
   
   updateSelectizeInput(session = session, 
                        inputId = 'gene', 
-                       choices = c(Choose="", gene.names),
+                       choices = c(Choose="", genes.key$gene_name),
                        selected="PDX1",
                        server = TRUE)
 
@@ -45,9 +45,12 @@ server <- function(input, output, session) {
                      input$start-as.numeric(input$ranges), 
                      "-", input$end+as.numeric(input$ranges)))
     } else if (input$coordType==1) {
-      load(paste0(path,
-                      input$genome, "/",input$genome, "_genesCoding_ensemblv75.rda"))
-      genes <- genes[genes$gene_name==input$gene,]
+      load(paste0(path, input$genome, "/genes/",
+                  input$genome, "_gene_annotation_ensemblv75_", 
+                  genes.key$chr[genes.key$gene_name %in% input$gene], ".rda"))
+      genes <- genes[genes$gene_name==input$gene &
+                       genes$type=="GENE" &
+                       genes$longest,]
       coord <- regioneR::extendRegions(genes, 
                                        extend.start=as.numeric(input$ranges),
                                        extend.end=as.numeric(input$ranges))
@@ -69,9 +72,9 @@ server <- function(input, output, session) {
     updateSelectInput(session, "chr",
                       selected=as.character(seqnames(coordinates())))
     updateNumericInput(session, "start", 
-                       value = start(ranges(coordinates())))
+                       value = start(coordinates()))
     updateNumericInput(session, "end", 
-                       value = end(ranges(coordinates())))
+                       value = end(coordinates()))
     updateSelectInput(session, "ranges",
                       selected=0)
   })
@@ -81,11 +84,11 @@ server <- function(input, output, session) {
   output$SLIDER = renderUI({
     sliderInput(inputId="zoom",
                 label="Coordinates",
-                value=c(start(ranges(coordinates())),
-                        end(ranges(coordinates()))),
-                min=max(start(ranges(coordinates()))-width(ranges(coordinates()))*4, 
+                value=c(start(coordinates()),
+                        end(coordinates())),
+                min=max(start(coordinates())-width(coordinates())*4, 
                         1),
-                max=min(end(ranges(coordinates()))+width(ranges(coordinates()))*4,
+                max=min(end(coordinates())+width(coordinates())*4,
                         len$length[len$chr==as.character(seqnames(coordinates()))]),
                 width="100%")
   })
@@ -103,44 +106,26 @@ server <- function(input, output, session) {
   ## Output coordinates in text
   ##----------------------------------------------------------------
   output$coordinates <- renderText({ 
-    
-    # if (input$doPlot==0) return()
     as.character(coordinates())
   })
   
   ## Function to draw plot regulome
   ##----------------------------------------------------------------
   makePlot <- eventReactive(input$doPlot, {
-    # if(input$doPlot==0) return()
-    
-    if (input$contacts.type!="-" &
-        input$contacts.type!="") {
-      files.contacts <- paste0(path,
-                               input$genome, "/",
-                               "new_Virtual4C/bw/",
-                               "bg", c(0,3,5), "_score/",
-                               substr(input$contacts.type, 1,1),
-                               "/",
-                               "PI_Merged_Digest_Human_HindIII_BaitID", input$contacts.type, "_bg", c(0,3,5), "_score.bw")
-    } else {
-      files.contacts <- ""
-    }
-    
     if (input$coordType==1) nm <- input$gene else nm <- as.character(coordinates())
-    message(paste0(">>>Creating_regulomePlot/", Sys.time(), "/", nm,
-                  "/", input$snps.type, "/", input$maps.type, "/", input$contacts.type,
-                  "/", input$clusters.type, "/", input$tfs.type))
     
-    suppressWarnings(
-      plotRegulome(coordinates(),
-                   snps.type=gsub("-", "", input$snps.type),
-                   contacts.type=files.contacts,
-                   maps.type=gsub("-", "", input$maps.type),
-                   cluster.type=gsub("-", "", input$clusters.type),
-                   tfs.type=gsub("-", "", input$tfs.type),
-                   showLongestTranscript=TRUE,
-                   genome=input$genome,
-                   path=path))
+    message(paste0(">>>Creating_regulomePlot/", Sys.time(), "/", nm,
+                  "/", input$snps.dataset, "/", input$maps.dataset, "/", input$contacts.dataset,
+                  "/", input$clusters.dataset, "/", input$tfs.dataset))
+    
+    plotRegulome(coordinates(),
+                 snps_dataset=gsub("-", "", input$snps.dataset),
+                 contacts_dataset=gsub("-", "", input$contacts.dataset),
+                 maps_dataset=gsub("-", "", input$maps.dataset),
+                 cluster_dataset=gsub("-", "", input$clusters.dataset),
+                 tfs_dataset=gsub("-", "", input$tfs.dataset),
+                 genome=input$genome,
+                 path=path)
   })
   
   ## Output Regulome Plot
@@ -189,9 +174,6 @@ server <- function(input, output, session) {
     content = function(file) {
       ggplot2::ggsave(filename=file, plot=makePlot(),
              width=12, height=6.5, unit="in")
-      # png(filename=file, width=12, height=6, units="in", res=72, type="cairo")
-      # print(makePlot())
-      # dev.off()
     }
   )
   
@@ -218,12 +200,12 @@ server <- function(input, output, session) {
   ## Maps table
   maps.df <- eventReactive(input$doPlot, {
     maps.l <- create_mapsRegulome(coordinates=coordinates(),
-                                  maps.type=gsub("-", "", input$maps.type),
+                                  maps_dataset=gsub("-", "", input$maps.dataset),
                                   genome=input$genome,
                                   path=path)
     
     tfs.l <- create_tfsRegulome(coordinates=coordinates(),
-                                  tfs.type=gsub("-", "", input$tfs.type),
+                                  tfs_dataset=gsub("-", "", input$tfs.dataset),
                                   genome=input$genome,
                                   path=path)
     
@@ -276,7 +258,7 @@ server <- function(input, output, session) {
   ## SNPs table
   snps.df <- eventReactive(input$doPlot, {
     snps <- create_snpsRegulome(coordinates=coordinates(),
-                                snps.type=gsub("-", "", input$snps.type),
+                                snps_dataset=gsub("-", "", input$snps.dataset),
                                 genome=input$genome,
                                 path=path)
     if (snps$name!="") {
@@ -300,27 +282,19 @@ server <- function(input, output, session) {
   
   ## Genes table
   genes.df <- eventReactive(input$doPlot, {
-    genes.sel <- plotRegulome:::create_genesRegulome(coordinates=coordinates(),
-                                                     showLongestTranscript=TRUE,
-                                                      genome=input$genome,
-                                                     path=path)
-    names <- unique(genes.sel$value$gene_name)
-    
     ## Load gene RNA data
-    load(paste0(path,"new_rna_expr/",
-                    input$genome, "/", input$genome, "_genes_", input$chr, ".rda"))
-    genes <- unique(genes[genes$Gene %in% names,c(7,6,8)])
-    # genes <- dplyr::left_join(genes, 
-    #                           data.frame(genes.sel$value)[genes.sel$value$type=="GENE",c(1:3,9)], by=c("Gene"="gene_name"))
-    # genes <- genes[,c(1:2,4:6,3)]
-    # colnames(genes) <- c("Gene Symbol", "Gene ID (UCSC)", "Chr", "Start", "End",
-    #                      "Expression (RPKM)")
+    load(paste0(path,input$genome, "/genes/",
+                input$genome, "_gene_moran_", input$chr, ".rda"))
+    genes <- subsetByOverlaps(genes, coordinates())
+    
+    genes <- data.frame(genes)[,c(7,6,8)]
     colnames(genes) <- c("Gene Symbol", "Gene ID (UCSC)",
                          "Expression (RPKM)")
     genes <- genes[order(genes[,3], decreasing=TRUE),]
     
     genes
   })
+  
   output$genesTable <- DT::renderDataTable({
     formattable::as.datatable(formattable::formattable(genes.df(),
                                                        list("Expression (RPKM)"=formattable::color_tile("transparent", 
