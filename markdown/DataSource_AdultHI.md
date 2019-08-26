@@ -37,7 +37,7 @@ Human β cell transcriptome analysis uncovers lncRNAs that are tissue-specific, 
 - H3K4me3, [E-MTAB-1294](http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-1294/)
 - RNA-seq, [E-MTAB-1294](http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-1294/)
 
-Human Pancreatic Cell lncRNAs Control Cell-Specific Regulatory Networks. Akerman I, et al. Cell Metab. 2016 Dec 28. doi: 10.1016/j.cmet.2016.11.016.
+Human Pancreatic Cell lncRNAs Control Cell-Specific Regulatory Networks. Akerman I, et al. Cell Metab. 2017 Feb 7;25(2):400-11. doi: 10.1016/j.cmet.2016.11.016.
 
 - lncRNA, from [Supplementary Table 3](http://www.cell.com/cms/attachment/2077961182/2070910817/mmc4.xlsx)
 
