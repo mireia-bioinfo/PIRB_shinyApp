@@ -4,8 +4,13 @@ Adult human islets
 ***
 
 ## Pancretic Islet super-enhancers / enhancer hubs / structural transcription factors / virtual 4C
-Human pancreatic islet 3D chromatin architecture provides insights into the genetics of type 2 diabetes. 
-Miguel-Escalada I, et al. 2018. bioRxiv Preprint. doi: 10.1101/400291
+Human pancreatic islet three-dimensional chromatin architecture provides insights into the genetics of type 2 diabetes. Miguel-Escalada I, et al. Nat Genet. 2019 Jun;51(7):1137–48. doi: 10.1038/s41588-019-0457-0
+
+- Islet Regulome chromatin classes, [Supplementary Data Set 1](https://static-content.springer.com/esm/art%3A10.1038%2Fs41588-019-0457-0/MediaObjects/41588_2019_457_MOESM4_ESM.zip)
+- Enhancer Hubs, [Supplementary Data Set 5](https://static-content.springer.com/esm/art%3A10.1038%2Fs41588-019-0457-0/MediaObjects/41588_2019_457_MOESM4_ESM.zip)
+- Super Enhancers, [Supplementary Data Set 9](https://static-content.springer.com/esm/art%3A10.1038%2Fs41588-019-0457-0/MediaObjects/41588_2019_457_MOESM4_ESM.zip)
+- Mediator, [Supplementary Data Set 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41588-019-0457-0/MediaObjects/41588_2019_457_MOESM4_ESM.zip)
+- Cohesin, [Supplementary Data Set 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41588-019-0457-0/MediaObjects/41588_2019_457_MOESM4_ESM.zip)
 
 ***
 
