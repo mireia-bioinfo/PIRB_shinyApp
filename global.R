@@ -6,8 +6,7 @@ library(shinythemes)
 library(markdown)
 library(GenomicRanges)
 library(DT)
-# library(plotRegulome)
-devtools::load_all("~/tools/IRB/plotregulome/")
+library(plotRegulome)
 
 ## Add informtion for link preview
 share <- list(
