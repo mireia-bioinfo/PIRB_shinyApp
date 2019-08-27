@@ -1,1 +1,1 @@
-plotRegulome::downloadIRB("IRB_database/")
+plotRegulome::downloadIRB("/home/docker/tools/isletregulome_shiny/IRB_database/")
