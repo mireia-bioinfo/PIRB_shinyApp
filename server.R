@@ -122,7 +122,7 @@ server <- function(input, output, session) {
                  snps_dataset=gsub("-", "", input$snps.dataset),
                  contacts_dataset=gsub("-", "", input$contacts.dataset),
                  maps_dataset=gsub("-", "", input$maps.dataset),
-                 cluster_dataset=gsub("-", "", input$clusters.dataset),
+                 clusters_dataset=gsub("-", "", input$clusters.dataset),
                  tfs_dataset=gsub("-", "", input$tfs.dataset),
                  genome=input$genome,
                  path=path)
