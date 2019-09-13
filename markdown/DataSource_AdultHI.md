@@ -3,6 +3,9 @@ Adult human islets
 
 ***
 
+## Cytokine-induced regultory elements
+he impact of pro-inflammatory cytokines on the β-cell regulatory landscape provides new insights into the genetics of type 1 diabetes. Ramos-Rodriguez M, et al. bioRxiv. 2019. doi: 10.1101/560193
+
 ## Pancretic Islet super-enhancers / enhancer hubs / structural transcription factors / virtual 4C
 Human pancreatic islet three-dimensional chromatin architecture provides insights into the genetics of type 2 diabetes. Miguel-Escalada I, et al. Nat Genet. 2019 Jun;51(7):1137–48. doi: 10.1038/s41588-019-0457-0
 
