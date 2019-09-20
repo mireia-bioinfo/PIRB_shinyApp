@@ -4,7 +4,10 @@ Adult human islets
 ***
 
 ## Cytokine-induced regulatory elements
-__The impact of pro-inflammatory cytokines on the β-cell regulatory landscape provides new insights into the genetics of type 1 diabetes__. Ramos-Rodriguez M, et al. _bioRxiv_. 2019. doi: [10.1101/560193](http://www.doi.org/10.1101/560193).
+__The impact of pro-inflammatory cytokines on the beta-cell regulatory landscape provides insights into the genetics of type 1 diabetes__. Ramos-Rodriguez M, et al.
+
+- [IREs EndoC-bH1](http://gattaca.imppc.org/genome_browser/lplab/IREs_hg19/hg19_map_ires_endoc.bed)
+- [IREs HI](http://gattaca.imppc.org/genome_browser/lplab/IREs_hg19/hg19_map_ires_hi.bed)
 
 ***
 
