@@ -3,11 +3,11 @@ topbar <-
     column(4,
            actionButton("toggleSidebar", "Hide sidebar", icon=icon("eye-slash"),
                         width="100%")),
-    column(3,
+    disabled(column(3,
            actionButton("doPlot",
                         label="Submit", 
                         style="color: #fff; background-color: #337ab7; border-color: #2e6da4;",
-                        width="100%")),
+                        width="100%"))),
     column(1,
            ## Add washu link
            actionButton("whashuLink", label="WashU",

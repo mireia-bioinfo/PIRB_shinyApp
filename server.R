@@ -1,11 +1,17 @@
 server <- function(input, output, session) {
   
+  ## Start with disabled submit button to avoid crashing the app
+  ##----------------------------------------------------------------
+  observe({
+    if (!(input$gene=="" & input$chr=="chr1" & input$start==1 & input$end==2 & input$contact=="")) enable("doPlot")
+  })
+  
   ## Hide or show sidebar panel
   ##----------------------------------------------------------------
   observeEvent(input$toggleSidebar, {
     shinyjs::toggle(id = "sidebar")
 
-    if (input$toggleSidebar %% 2 != 0) {
+    if (input$toggleSidebar %% 2 != 0) {d
       updateActionButton(session,
                          "toggleSidebar",
                          label = "Show sidebar",
@@ -60,6 +66,7 @@ server <- function(input, output, session) {
     
     return(coord)
   })
+  
   
   ## Update coordinates
   ##----------------------------------------------------------------
