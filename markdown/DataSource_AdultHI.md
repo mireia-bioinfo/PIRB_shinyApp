@@ -49,6 +49,8 @@ __Human Pancreatic Cell lncRNAs Control Cell-Specific Regulatory Networks__. Ake
 
 - lncRNA, from [Supplementary Table 3](http://www.cell.com/cms/attachment/2077961182/2070910817/mmc4.xlsx)
 
+__The impact of pro-inflammatory cytokines on the beta-cell regulatory landscape provides insights into the genetics of type 1 diabetes__. Ramos-Rodriguez M, et al.
+
 ***
 
 ## Pancreatic islet open chromatin map / COREs

@@ -288,25 +288,43 @@ server <- function(input, output, session) {
   })
   
   ## Genes table
-  genes.df <- eventReactive(input$doPlot, {
+  genes.df <- eventReactive(c(input$doPlot, input$rnadb), {
     ## Load gene RNA data
     load(paste0(path,input$genome, "/genes/",
-                input$genome, "_gene_moran_", input$chr, ".rda"))
+                input$genome, "_gene_", input$rnadb, "_", input$chr, ".rda"))
     genes <- subsetByOverlaps(genes, coordinates())
     
-    genes <- data.frame(genes)[,c(7,6,8)]
-    colnames(genes) <- c("Gene Symbol", "Gene ID (UCSC)",
-                         "Expression (RPKM)")
-    genes <- genes[order(genes[,3], decreasing=TRUE),]
-    
-    genes
+    if (input$rnadb=="moran") {
+      genes <- data.frame(genes)[,c(7,6,8)]
+      colnames(genes) <- c("Gene Symbol", "Gene ID (UCSC)",
+                           "Expression (RPKM)")
+      genes <- genes[order(genes[,3], decreasing=TRUE),]
+      
+      genes
+    } else {
+      genes <- data.frame(genes)[,c(7,6,8:10)]
+      colnames(genes) <- c("Gene Symbol", "Gene ID (Ensembl)",
+                           "Control Expression*", "Cytokine-induced Expression*",
+                           "log2 fold-change")
+      genes <- genes[order(genes[,5], decreasing=TRUE),]
+    }
+
   })
   
   output$genesTable <- DT::renderDataTable({
-    formattable::as.datatable(formattable::formattable(genes.df(),
-                                                       list("Expression (RPKM)"=formattable::color_tile("transparent", 
-                                                                                           "steelblue3"))),
-                              rownames=FALSE)
+    if (input$rnadb=="moran") {
+      formattable::as.datatable(formattable::formattable(genes.df(),
+                                                         list("Expression (RPKM)"=formattable::color_tile("transparent", 
+                                                                                                          "steelblue3"))),
+                                rownames=FALSE)
+    } else {
+      formattable::as.datatable(formattable::formattable(genes.df(),
+                                                         list("log2 fold-change"=formattable::formatter("span",
+                                                                                           style = x ~ formattable::style(color = ifelse(x >= 1, 
+                                                                                                                            "green", "gray"))))),
+                                rownames=FALSE)
+    }
+    
   })
   
   ##----------------------------------------------------------------

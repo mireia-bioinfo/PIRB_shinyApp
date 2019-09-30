@@ -15,4 +15,12 @@ tabMainTables <-
            h3("SNPs"),
            withSpinner(DT::dataTableOutput("snpsTable")),
            h3("RNA-seq Expression"),
-           withSpinner(DT::dataTableOutput("genesTable")))
+           selectInput("rnadb", "RNA-seq dataset",
+                       choices=c("Adult Islets (Moran I, et al. 2012)"="moran",
+                                 "Adult Islets - Cytokine-responsive expression (Ramos-Rodriguez M, et al. 2019)"="cytHI",
+                                 "EndoC-bH1 - Cytokine-responsive expression (Ramos-Rodriguez M, et al. 2019)"="cytEndoC"),
+                       width="600px"),
+           withSpinner(DT::dataTableOutput("genesTable")),
+           conditionalPanel(condition="input.rnadb!='moran'",
+                            helpText("* DESeq2 normalized expression values"))
+           )
