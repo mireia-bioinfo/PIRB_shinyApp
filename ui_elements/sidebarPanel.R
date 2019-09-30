@@ -53,8 +53,8 @@ sidebar <-
                 c(Choose="", list("Adult Islets - Chromatin Classes (Miguel-Escalada I, et al. 2019)" = "chromatinClassesReduced",
                                   "Adult Islets - Chromatin Classes (Pasquali L, et al. 2014)" = "openChromatinClasses",
                                   "Adult Islets - Chromatin States (Parker SC, et al. 2013)" = "chromatinStates",
-                                  "Adult Islets - Regulatory Elements (Ramos-Rodriguez M, et al. 2019)" = "cytHISubgroup",
-                                  "EndoC-bH1 - Regulatory Elements (Ramos-Rodriguez M, et al. 2019)" = "cytEndoCSubgroup",
+                                  "Adult Islets - Cytokine-Responsive REs (Ramos-Rodriguez M, et al. 2019)" = "cytHISubgroup",
+                                  "EndoC-bH1 - Cytokine-Responsive REs (Ramos-Rodriguez M, et al. 2019)" = "cytEndoCSubgroup",
                                   "Pancreatic Progenitors (Cebola I, et al. 2015)" = "progenitors")),
                 selected="chromatinClassesReduced"),
     ## Cluster types
