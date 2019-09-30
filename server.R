@@ -306,6 +306,7 @@ server <- function(input, output, session) {
       colnames(genes) <- c("Gene Symbol", "Gene ID (Ensembl)",
                            "Control Expression*", "Cytokine-induced Expression*",
                            "log2 fold-change")
+      genes$`log2 fold-change` <- round(genes$`log2 fold-change`, 2)
       genes <- genes[order(genes[,5], decreasing=TRUE),]
     }
 
@@ -322,7 +323,10 @@ server <- function(input, output, session) {
                                                          list("log2 fold-change"=formattable::formatter("span",
                                                                                            style = x ~ formattable::style(color = ifelse(x >= 1, 
                                                                                                                             "green", "gray"))))),
-                                rownames=FALSE)
+                                rownames=FALSE) %>%
+        DT::formatRound(columns=c("Control Expression*", "Cytokine-induced Expression*","log2 fold-change"), 
+                        digits=2)
+      
     }
     
   })

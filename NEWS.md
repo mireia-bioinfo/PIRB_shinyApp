@@ -5,6 +5,7 @@
 - Add RNA-seq data for cytokine-induced regulatory elements & select input for showing table. 
 - Add option `None` to Virtual4C menu.
 - Use `plotRegulome` version `0.2.1`.
+- Round table numbers for cytokine-induced expression.
 
 # Islet Regulome Browser 1.2.3
 

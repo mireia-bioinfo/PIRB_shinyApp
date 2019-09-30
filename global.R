@@ -7,6 +7,7 @@ library(markdown)
 library(GenomicRanges)
 library(DT)
 library(plotRegulome)
+library(magrittr)
 
 ## Add informtion for link preview
 share <- list(
