@@ -122,13 +122,13 @@ server <- function(input, output, session) {
     if (input$coordType==1) nm <- input$gene else nm <- as.character(coordinates())
     
     message(paste0(">>>Creating_regulomePlot/", Sys.time(), "/", nm,
-                  "/", input$snps.dataset, "/", input$maps.dataset, "/", input$contacts.dataset,
+                  "/", input$snps.dataset, "/", input$maps_dataset, "/", input$contacts.dataset,
                   "/", input$clusters.dataset, "/", input$tfs.dataset))
     
     plotRegulome(coordinates(),
                  snps_dataset=gsub("-", "", input$snps.dataset),
                  contacts_dataset=gsub("-", "", input$contacts.dataset),
-                 maps_dataset=gsub("-", "", input$maps.dataset),
+                 maps_dataset=gsub("-", "", input$maps_dataset),
                  clusters_dataset=gsub("-", "", input$clusters.dataset),
                  tfs_dataset=gsub("-", "", input$tfs.dataset),
                  genome=input$genome,
@@ -207,7 +207,7 @@ server <- function(input, output, session) {
   ## Maps table
   maps.df <- eventReactive(input$doPlot, {
     maps.l <- create_mapsRegulome(coordinates=coordinates(),
-                                  maps_dataset=gsub("-", "", input$maps.dataset),
+                                  maps_dataset=gsub("-", "", input$maps_dataset),
                                   genome=input$genome,
                                   path=path)
     

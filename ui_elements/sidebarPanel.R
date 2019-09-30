@@ -48,7 +48,7 @@ sidebar <-
     # Input: Datasets to show
     h4("Features"),
     ## Chromatin maps
-    selectInput("maps.dataset",
+    selectInput("maps_dataset",
                 label="Chromatin Maps",
                 c(Choose="", list("Adult Islets - Chromatin Classes (Miguel-Escalada I, et al. 2019)" = "chromatinClassesReduced",
                                   "Adult Islets - Chromatin Classes (Pasquali L, et al. 2014)" = "openChromatinClasses",
