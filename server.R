@@ -216,14 +216,14 @@ server <- function(input, output, session) {
                                   genome=input$genome,
                                   path=path)
     
-    if (maps.l$name!="" & tfs.l$name!="") {
+    if (maps.l$name!="" & tfs.l$name!="" & length(maps.l$value)>0) {
       ## Add tfs data
       ol <- findOverlaps(maps.l$value,
                          tfs.l$value)
       
       tfs.ol <- split(tfs.l$value$TF[subjectHits(ol)],
                       queryHits(ol))
-      tfs.ol <- sapply(tfs.ol, unique)
+      tfs.ol <- lapply(tfs.ol, unique)
       tfs.ol <- sapply(tfs.ol, paste0, collapse=", ")
       
       maps.l$value$TFBS <- "-"
@@ -232,7 +232,7 @@ server <- function(input, output, session) {
       ## Convert to data.frame
       maps.l$value <- data.frame(maps.l$value)[,c(6, 1:3, 7)]
       colnames(maps.l$value) <- c("Class", "Chr", "Start", "End", "TFBS")
-    } else if (maps.l$name!="" & tfs.l$name=="") {
+    } else if (maps.l$name!="" & tfs.l$name=="" & length(maps.l$value)>0) {
     maps.l$value$TFBS <- "-"
     maps.l$value <- data.frame(maps.l$value)[,c(6, 1:3, 7)]
     colnames(maps.l$value) <- c("Class", "Chr", "Start", "End", "TFBS")
