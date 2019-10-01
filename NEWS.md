@@ -1,3 +1,8 @@
+# Islet Regulome Browser 1.2.5
+- Fix error in *Chromatin Maps* table when:
+    + No chromatin maps features were present.
+    + Only one TFBS was present.
+
 # Islet Regulome Browser 1.2.4
 - Change cytokine-induced REs name in Chromatin Maps menu.
 - Add "Cytokine-Induced Regulatory Elements" to plot legend title.
