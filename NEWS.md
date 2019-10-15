@@ -1,3 +1,6 @@
+# Islet Regulome Browser 1.2.6
+- Fix error when hiding sidebar.
+
 # Islet Regulome Browser 1.2.5
 - Fix error in *Chromatin Maps* table when:
     + No chromatin maps features were present.
