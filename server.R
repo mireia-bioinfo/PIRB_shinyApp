@@ -11,7 +11,7 @@ server <- function(input, output, session) {
   observeEvent(input$toggleSidebar, {
     shinyjs::toggle(id = "sidebar")
 
-    if (input$toggleSidebar %% 2 != 0) {d
+    if (input$toggleSidebar %% 2 != 0) {
       updateActionButton(session,
                          "toggleSidebar",
                          label = "Show sidebar",
