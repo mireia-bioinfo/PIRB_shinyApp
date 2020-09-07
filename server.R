@@ -187,7 +187,7 @@ server <- function(input, output, session) {
   ## Add UCSC link to plot
   ##----------------------------------------------------------------
   output$UCSCLink <- renderUI({
-    url <- paste0("https://genome.ucsc.edu/cgi-bin/hgTracks?hgS_doOtherUser=submit&hgS_otherUserName=mramos&hgS_otherUserSessionName=hg19_IRB&position=",
+    url <- paste0("https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&hubUrl=https://raw.githubusercontent.com/mireia-bioinfo/IRB_hub/master/hub.txt&hubUrl=https://raw.githubusercontent.com/mireia-bioinfo/CYT_hub/master/hub.txt&position=",
                   input$chr, "%3A", input$start, "-", input$end)
 
     actionButton("UCSCLink", label="UCSC",
@@ -198,6 +198,18 @@ server <- function(input, output, session) {
                  )
   })
 
+    output$WashULink <- renderUI({
+    url <- paste0("http://epigenomegateway.wustl.edu/legacy/?genome=hg19&datahub_jsonfile=https://raw.githubusercontent.com/mireia-bioinfo/IRB_hub/master/washu_session_pchic.txt&coordinate=",
+                  input$chr, "%3A", input$start, "-", input$end)
+
+    actionButton("WashULink", label="WashU",
+                 icon = icon("link"),
+                 onclick = paste0("window.open(", shQuote(url, type="sh"), ",",
+                                  shQuote("_blank", type="sh"), ")"),
+                 width="100%"
+                 )
+  })
+  
   ## Close all connections to avoid error
   closeAllConnections()
   
