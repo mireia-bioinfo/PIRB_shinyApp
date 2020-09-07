@@ -188,7 +188,7 @@ server <- function(input, output, session) {
   ##----------------------------------------------------------------
   output$UCSCLink <- renderUI({
     url <- paste0("https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&hubUrl=https://raw.githubusercontent.com/mireia-bioinfo/IRB_hub/master/hub.txt&hubUrl=https://raw.githubusercontent.com/mireia-bioinfo/CYT_hub/master/hub.txt&position=",
-                  input$chr, "%3A", input$start, "-", input$end)
+                  input$chr, ":", input$start, "-", input$end)
 
     actionButton("UCSCLink", label="UCSC",
                  icon = icon("link"),
@@ -199,8 +199,8 @@ server <- function(input, output, session) {
   })
 
     output$WashULink <- renderUI({
-    url <- paste0("http://epigenomegateway.wustl.edu/legacy/?genome=hg19&datahub_jsonfile=https://raw.githubusercontent.com/mireia-bioinfo/IRB_hub/master/washu_session_pchic.txt&coordinate=",
-                  input$chr, "%3A", input$start, "-", input$end)
+    url <- paste0("http://epigenomegateway.wustl.edu/legacy/?genome=hg19&datahub_jsonfile=https://raw.githubusercontent.com/mireia-bioinfo/IRB_hub/master/washu_session_pchic.txt&position=",
+                  input$chr, ":", input$start, "-", input$end)
 
     actionButton("WashULink", label="WashU",
                  icon = icon("link"),
