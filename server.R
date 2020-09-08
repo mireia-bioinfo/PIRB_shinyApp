@@ -199,7 +199,7 @@ server <- function(input, output, session) {
   })
 
     output$WashULink <- renderUI({
-    url <- paste0("http://epigenomegateway.wustl.edu/legacy/?genome=hg19&datahub_jsonfile=https://raw.githubusercontent.com/mireia-bioinfo/IRB_hub/master/washu_session_pchic.txt&position=",
+    url <- paste0("http://epigenomegateway.wustl.edu/legacy/?genome=hg19&datahub_jsonfile=https://raw.githubusercontent.com/mireia-bioinfo/IRB_hub/master/washu_session_pchic.txt&coordinate=",
                   input$chr, ":", input$start, "-", input$end)
 
     actionButton("WashULink", label="WashU",
