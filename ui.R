@@ -105,7 +105,7 @@ ui <- fluidPage(theme = shinytheme("yeti"),
     a("Endocrine Regulatory Genomics Lab", 
       href="https://www.endoregulatorygenomics.org/",
       target="_blank"),
-    "(IGTP, Badalona, Spain)", align="center")
+    "(UPF, Barcelona, Spain)", align="center")
 )
 
   
