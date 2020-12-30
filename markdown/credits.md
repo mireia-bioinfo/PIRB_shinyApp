@@ -1,7 +1,7 @@
 The Islet Regulome Browser
 =========================================
 
-The Islet Regulome Browser is currently developed and maintained in the **[Pasquali Lab](http://www.endoregulatorygenomics.org)** by Dr. Mireia Ramos-Rodriguez.
+The Islet Regulome Browser is currently developed and maintained in Dr. **Lorenzo Pasquali Lab** ([Endocrine Regulatory Genomics, UPF](http://www.endoregulatorygenomics.org)) by Dr. Mireia Ramos-Rodriguez.
 
 The Islet Regulome browser was originally designed by Dr. Lorenzo Pasquali (UPF) and Dr. Loris Mularoni (CMR-[B]). Initial supervision for the project was provided by Prof. Jorge Ferrer (CRG).
 
