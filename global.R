@@ -19,7 +19,7 @@ share <- list(
 )
 
 ## Path for IsletRegulome files
-path <- "IRB_database/"
+path <- "PIRB_database/"
 
 ## Create chromosome names
 chr.names <- paste0("chr", c(1:23, "X", "Y"))
