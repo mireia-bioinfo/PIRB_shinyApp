@@ -1,7 +1,7 @@
 # Define UI for miles per gallon app ----
 ui <- fluidPage(theme = shinytheme("yeti"),
-  
-  ## Site metadata ------------------------            
+
+  ## Site metadata ------------------------
   tags$head(tags$link(rel = "shortcut icon", href = "favicon.ico"), # Line to include favicon
             # Facebook OpenGraph tags
             tags$meta(property = "og:title", content = share$title),
@@ -9,7 +9,7 @@ ui <- fluidPage(theme = shinytheme("yeti"),
             tags$meta(property = "og:url", content = share$url),
             tags$meta(property = "og:image", content = share$image),
             tags$meta(property = "og:description", content = share$description),
-            
+
             # Twitter summary cards
             tags$meta(name = "twitter:card", content = "summary"),
             tags$meta(name = "twitter:site", content = paste0("@", share$twitter_user)),
@@ -28,14 +28,14 @@ ui <- fluidPage(theme = shinytheme("yeti"),
              topbar,
              fluidRow(
                ## SIDEBAR PANEL (DATA) -----------------------
-               column(width=4, id="sidebar", 
+               column(width=4, id="sidebar",
                       sidebar
                       ),
                ## MAIN PANEL ---------------------------------
                column(width=8, id="main",
                       ## TABS MAIN ------------------------------
                       br(),
-                      tabsetPanel(type="tabs", 
+                      tabsetPanel(type="tabs",
                                   tabMainPlot,
                                   tabMainTables)
                  )
@@ -65,8 +65,8 @@ ui <- fluidPage(theme = shinytheme("yeti"),
              includeMarkdown("markdown/contact.md"),
              p(a(actionButton("contact", label="Contact Us",
                               icon = icon("envelope"),
-                              onclick=paste0("window.open(", 
-                                             shQuote("mailto:info@isletregulome.com", type="sh"), ",",
+                              onclick=paste0("window.open(",
+                                             shQuote("mailto:mireia.ramos@upf.edu?&cc=lorenzo.pasquali@upf.edu”", type="sh"), ",",
                                              shQuote("_self", type="sh"), ")"),
                               width="25%")
              ), align="center")
@@ -97,15 +97,15 @@ ui <- fluidPage(theme = shinytheme("yeti"),
   ),
   ## Footer --------------------------------
   hr(),
-  p("Follow us on twitter!", 
+  p("Follow us on twitter!",
     a("@isletregulome",
       href="https://twitter.com/isletregulome",
       target="_blank"), align="center"),
   p("The IRB is developed and maintained at the",
-    a("Endocrine Regulatory Genomics Lab", 
+    a("Endocrine Regulatory Genomics Lab",
       href="https://www.endoregulatorygenomics.org/",
       target="_blank"),
     "(UPF, Barcelona, Spain)", align="center")
 )
 
-  
+
