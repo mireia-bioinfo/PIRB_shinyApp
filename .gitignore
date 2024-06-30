@@ -4,3 +4,7 @@ static_data/
 .Rapp.history
 .RData
 IRB_database/
+.Rproj.user
+.DS_Store
+PIRB_database
+PIRB_shinyApp.Rproj
