@@ -51,6 +51,9 @@ ui <- fluidPage(theme = shinytheme("yeti"),
                tabPanel("Adult Human Islets",
                         includeMarkdown("markdown/DataSource_AdultHI.md")
                ),
+               tabPanel("Insulinomas",
+                        includeMarkdown("markdown/DataSource_Insulinoma.md")
+               ),
                tabPanel("Pancreatic Progenitors",
                         includeMarkdown("markdown/DataSource_PancreaticProgenitors.md")
                ),
