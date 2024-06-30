@@ -55,6 +55,7 @@ sidebar <-
                                   "Adult Islets - Chromatin States (Parker SC, et al. 2013)" = "chromatinStates",
                                   "Adult Islets - Cytokine-Responsive REs (Ramos-Rodriguez M, et al. 2019)" = "cytHISubgroup",
                                   "EndoC-bH1 - Cytokine-Responsive REs (Ramos-Rodriguez M, et al. 2019)" = "cytEndoCSubgroup",
+                                  "Insulinoma Regulatory Elements (Ramos-Rodriguez M, et al. 2024)"="insREs",
                                   "Pancreatic Progenitors (Cebola I, et al. 2015)" = "progenitors")),
                 selected="chromatinClassesReduced"),
     ## Cluster types
