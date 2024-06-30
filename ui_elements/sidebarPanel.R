@@ -64,6 +64,7 @@ sidebar <-
                                   "Stretch Enhancers (Parker SC, et al. 2013)"="stretchEnhancers",
                                   "Super Enhancers (Miguel-Escalada I, et al. 2019)"="superEnhancers",
                                   "Enhancer Hubs (Miguel-Escalada I, et al. 2019)"="enhancerHubs",
+                                  "Insulinoma Regulatory Domains (Ramos-Rodriguez M, et al. 2024)"="irds",
                                   "COREs (Gaulton KJ, et al. 2010)"="cores")),
                 selected="enhancerClusters"),
     ## TFs type
