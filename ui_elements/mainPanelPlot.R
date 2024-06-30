@@ -22,15 +22,5 @@ tabMainPlot <-
              fluidRow(
                column(4, ""),
                column(4, downloadButton("downloadPlot", "Download Plot",
-                            width="100%")), 
-               column(4, conditionalPanel(condition="input.maps_dataset=='cytHISubgroup' | input.maps_dataset=='cytEndoCSubgroup'",
-                                actionButton("cytinfo", label="Cytokine-responsive regulatory elements",
-                                             icon = icon("info"),
-                                             onclick = paste0("window.open(", 
-                                                              shQuote("https://www.biorxiv.org/content/10.1101/560193v1", 
-                                                                      type="sh"), ",",
-                                                              shQuote("_blank", type="sh"), ")"),
-                                             width="100%")
-                                )
-               ))
+                            width="100%")))
   ))
